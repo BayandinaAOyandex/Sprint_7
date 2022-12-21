@@ -87,3 +87,4 @@ public class CreateCourierTests {
                 .assertThat().body("message", equalTo(REGISTER_ERROR_409));
     }
 }
+//

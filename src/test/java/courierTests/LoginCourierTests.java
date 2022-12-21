@@ -88,3 +88,4 @@ public class LoginCourierTests {
                 .assertThat().body("message", equalTo("Недостаточно данных для входа"));
     }
 }
+//
