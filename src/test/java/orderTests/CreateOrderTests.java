@@ -1,13 +1,16 @@
 package orderTests;
 
+import generatingOfClasses.GeneratingCourier;
 import generatingOfClasses.GeneratingOrder;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import lombok.AllArgsConstructor;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import pojo.CreateCourier;
 import pojo.CreateOrder;
 import steps.OrderSteps;
 
@@ -34,6 +37,7 @@ public class CreateOrderTests {
                 {Collections.emptyList(), 201}
         };
     }
+
 
     @Test
     @DisplayName("Создание заказа с параметризацией")

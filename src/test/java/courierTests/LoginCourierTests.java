@@ -5,6 +5,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.After;
 import org.junit.Test;
 import pojo.CreateCourier;
 import pojo.LoginCourier;
@@ -13,8 +14,10 @@ import steps.CourierSteps;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsNull.notNullValue;
 
+
 @DisplayName("Логин  курьера")
 public class LoginCourierTests {
+
     @Test
     @DisplayName("Авторизация курьера")
     @Description("Ожидаемый код ответа: 200")
