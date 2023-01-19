@@ -4,6 +4,7 @@ import generatingOfClasses.GeneratingCourier;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Test;
 import pojo.CreateCourier;
 import steps.CourierSteps;
@@ -15,7 +16,16 @@ public class CreateCourierTests {
 
     public static final String REGISTER_ERROR_400 = "Недостаточно данных для создания учетной записи";
     public static final String REGISTER_ERROR_409 = "Этот логин уже используется";
+    private int courierId;  // default value
+    private final CourierSteps check = new CourierSteps();
+    @After
+    public void deleteCourier() {
+        if (courierId > 0) {
+            CreateCourier response = GeneratingCourier.delete(courierId);
 
+            check.deletedSuccessfully(response);
+        }
+    }
     @Test
     @DisplayName("Создание нового курьера с валидными данными")
     @Description("Ожидаемый код ответа: 201")
@@ -87,3 +97,4 @@ public class CreateCourierTests {
                 .assertThat().body("message", equalTo(REGISTER_ERROR_409));
     }
 }
+//
